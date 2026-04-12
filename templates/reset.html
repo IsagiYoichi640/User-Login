@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reset password</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+    </head>
+    <body>
+       <div class="login-container">
+           <form method="post" class="'login-form">
+               <h2>Reset password</h2>
+               {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% for category, message in messages %}
+                     <div class="alert {{category}}">{{ message }}</div>
+                  {% endfor %}
+               {% endwith %}
+               <input type="password" name="password" placeholder="Enter your new password" required>
+               <input type="password" name="password" placeholder="Confirm your new password" required>
+               <button type="submit">Reset password</button>
+               
+            
+           </form>
+       </div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+    </head>
+    <body>
+       <div class="login-container">
+           <form method="post" class="'login-form">
+               <h2>Sign up</h2>
+               {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% for category, message in messages %}
+                     <div class="alert {{category}}">{{ message }}</div>
+                  {% endfor %}
+               {% endwith %}
+               <input type="text" name="username" placeholder="Enter your username" required>
+               <input type="email" name="email" placeholder="Enter your email" readonly>
+               <input type="password" name="password" placeholder="Password" required>
+               <input type="password" name="confirm_password" placeholder="Confirm password" required>
+               <button type="submit">Sign up</button>
+               <a href="/login">Login</a>
+               
+            
+           </form>
+       </div>
+    </body>
+</html>
